@@ -1,0 +1,21 @@
+<%= form_for :article, url: articles_path do |f| %>
+	<% if @article.errors.any? %>
+	<div id="error_explanation">
+		<%= pluralize(@article.errors.count,"error")%>
+		<% @article.errors.full_messages.each do |mgs|%>
+		<li><%= mgs%></li>
+		<%end%>
+	</div>
+	<%end%>
+<p>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+</p>
+<p>
+	<%= f.label :text %>
+	<%= f.text_field :text %>
+</p>
+<p>
+	<%= f.submit%>
+</p>
+<% end %>
