@@ -30,7 +30,22 @@
   <p>
     <%= form.submit %>
   </p>
- 
+  <div class="content"></div>
+  <button></button>
 <% end %>
  
 <%= link_to 'Back', article_path %>
+
+<script>
+  var content = document.getElementsByClassName('content');
+  $.ajax({
+    url: 'http://localhost:3000/articles/' + 12 + '/edit',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data){
+      $(data).each(function(index, el) {
+        console.log(el);
+      });
+    }
+  });
+</script>
